@@ -37,6 +37,10 @@ public class ImageListController : MonoBehaviour
 
     private void LoadAllPNGFilesFromDirectory(string _pathToDirectory)
     {
+        if (!Directory.Exists(pathToDirectory))
+        {
+            Directory.CreateDirectory(pathToDirectory);
+        }
         listObjectDatas.Clear();
         DirectoryInfo dir = new DirectoryInfo(_pathToDirectory);
         FileInfo[] info = dir.GetFiles("*.png");
